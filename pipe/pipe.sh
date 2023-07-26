@@ -3,8 +3,9 @@ source "$(dirname $0)/common.sh"
 info "Starting Pipe"
 
 # default vars
-TAG=${TAG:=""}
 PLAYBOOK_NAME=${PLAYBOOK_NAME:="playbook.yml"}
+INVENTORY=${INVENTORY:="inventory"}
+TAG=${TAG:=""}
 VAULT_PASSPHRASE=${VAULT_PASSPHRASE:=""}
 
 # get playbook
@@ -15,7 +16,7 @@ PLAYBOOK_LOCATION=$(echo $PLAYBOOOK_FILE | sed 's/playbook.yml//')
 cd $PLAYBOOK_LOCATION
 
 # run ansible playbook
-ANSIBLE_COMMAND="ansible-playbook $PLAYBOOK_NAME"
+ANSIBLE_COMMAND="ansible-playbook $PLAYBOOK_NAME -i inventory"
 
 if [$TAG != '']; then
   ANSIBLE_COMMAND=$ANSIBLE_COMMAND+" -t $TAG"
