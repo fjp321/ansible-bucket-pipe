@@ -13,13 +13,13 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ env.DOCKER_USERNAME }}
+          username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: env.DOCKER_USERNAME/pipe-layer
+          images: vars.DOCKER_USERNAME/pipe-layer:latest
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
