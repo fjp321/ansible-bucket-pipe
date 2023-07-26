@@ -27,3 +27,9 @@ if [$VAULT_PASSPHRASE != '']; then
 fi
 
 bash -c "$ANSIBLE_COMMAND"
+
+if [[ "${status}" == "0" ]]; then
+  success "Success!"
+else
+  fail "Error!"
+fi
