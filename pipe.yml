@@ -1,0 +1,7 @@
+name: pipe-layer
+image: fjp321/pipe-layer
+description: pipe for running ansible playbooks
+tags:
+    - bitbucket-pipelines
+    - pipes
+    - bash
