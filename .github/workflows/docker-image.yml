@@ -1,4 +1,4 @@
-name: build pipe-layer pipe
+name: build
 on:
   push:
     branches: [ "main" ]
