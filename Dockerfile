@@ -1,5 +1,5 @@
 FROM alpine
-RUN apk add --update --no-cache bash python openssh
+RUN apk add --update --no-cache bash python3 openssh
 COPY pipe/pipe.sh /pipe.sh
 COPY pipe.yml /pipe.yml
 RUN pip3 install ansible
