@@ -21,6 +21,8 @@ fi
 echo "IdentityFile ~/.ssh/pipelines_id" >> ~/.ssh/config
 chmod -R go-rwx ~/.ssh/
 
+info "$(cat ~/.ssh/config)"
+
 # default vars
 PLAYBOOK_NAME=${PLAYBOOK_NAME:="playbook.yml"}
 INVENTORY=${INVENTORY:="inventory"}
