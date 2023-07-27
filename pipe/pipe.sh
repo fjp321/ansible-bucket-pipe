@@ -14,7 +14,7 @@ TAG=${TAG:?'TAG variable missing.'}
 
 # git clone
 info "cloning repo with token ..."
-git clone https://x-token-auth:$BITBUCKET_TOKEN@bitbucket.org/$BITBUCKET_REPO.git
+git clone https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/${BITBUCKET_REPO}.git
 info "done"
 
 # get playbook
@@ -30,14 +30,14 @@ ANSIBLE_COMMAND="ansible-playbook $PLAYBOOK_NAME -i inventory"
 
 if [$TAG != ""]; then
   info "Add tag ..."  
-  ANSIBLE_COMMAND=$ANSIBLE_COMMAND+" -t $TAG"
+  ANSIBLE_COMMAND="$ANSIBLE_COMMAND -t $TAG"
   info "done"
 fi
 
 if [$VAULT_PASSPHRASE != ""]; then
   info "add vault file ..."
   echo $VAULT_PASSPHRASE > vault_file
-  ANSIBLE_COMMAND="$ANSIBLE_COMMAND--vault-pass-file vault_file"
+  ANSIBLE_COMMAND="$ANSIBLE_COMMAND --vault-pass-file vault_file"
   info "done"
 fi
 
