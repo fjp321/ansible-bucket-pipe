@@ -4,11 +4,18 @@ info "Starting Pipe ..."
 
 # default vars
 info "Getting vars ..."
-PLAYBOOK_NAME=${PLAYBOOK_NAME:="playbook.yml"}
-INVENTORY=${INVENTORY:="inventory"}
-TAG=${TAG:=""}
-VAULT_PASSPHRASE=${VAULT_PASSPHRASE:=""}
-SSH_KEY_LOCATION=${SSH_KEY_LOCATION:=""}
+VAULT_PASSPHRASE=${VAULT_PASSPHRASE:?'VAULT_PASSPHRASE variable missing.'}
+SSH_KEY_LOCATION=${SSH_KEY_LOCATION:?'SSH_KEY_LOCATION variable missing.'}
+BITBUCKET_TOKEN=${BITBUCKET_TOKEN:?'BITBUCKET_TOKEN variable missing.'}
+BITBUCKET_REPO=${BITBUCKET_TOKEN:?'BITBUCKET_REPO variable missing.'}
+PLAYBOOK_NAME=${PLAYBOOK_NAME:?'PLAYBOOK_NAME variable missing.'}
+INVENTORY=${INVENTORY:?'INVENTORY variable missing.'}
+TAG=${TAG:?'TAG variable missing.'}
+
+# git clone
+info "cloning repo with token ..."
+git clone https://x-token-auth:$BITBUCKET_TOKEN@bitbucket.org/$BITBUCKET_REPO.git
+info "done"
 
 # get playbook
 info "Getting playbook ..."
