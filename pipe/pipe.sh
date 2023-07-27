@@ -6,21 +6,19 @@ info "Starting Pipe ..."
 info "Getting vars ..."
 VAULT_PASSPHRASE=${VAULT_PASSPHRASE:?'VAULT_PASSPHRASE variable missing.'}
 SSH_KEY_LOCATION=${SSH_KEY_LOCATION:?'SSH_KEY_LOCATION variable missing.'}
-BITBUCKET_TOKEN=${BITBUCKET_TOKEN:?'BITBUCKET_TOKEN variable missing.'}
-BITBUCKET_REPO=${BITBUCKET_TOKEN:?'BITBUCKET_REPO variable missing.'}
 PLAYBOOK_NAME=${PLAYBOOK_NAME:?'PLAYBOOK_NAME variable missing.'}
 INVENTORY=${INVENTORY:?'INVENTORY variable missing.'}
 TAG=${TAG:?'TAG variable missing.'}
 
-# git clone
-info "cloning repo with token ..."
-git clone https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/${BITBUCKET_REPO}.git
-info "done"
+# cd
+info "Going to clone dir ..."
+cd $BITBUCKET_CLONE_DIR
+info "done. \n$(ls -la)":
 
 # get playbook
 info "Getting playbook ..."
-PLAYBOOK_FILE=$(find -P / -name ${PLAYBOOK_NAME} -not -path /usr/lib/* 2> /dev/null)
-PLAYBOOK_LOCATION=$(echo $PLAYBOOOK_FILE | sed 's/playbook.yml//')
+PLAYBOOK_FILE=$(find -P . -name ${PLAYBOOK_NAME} 2> /dev/null)
+PLAYBOOK_LOCATION=$(echo ${PLAYBOOOK_FILE} | sed 's/playbook.yml//')
 info "found playbook at $PLAYBOOK_LOCATION"
 cd $PLAYBOOK_LOCATION
 
