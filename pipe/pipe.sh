@@ -3,6 +3,7 @@ source "$(dirname $0)/common.sh"
 info "Starting Pipe ..."
 
 # default vars + ssh
+info "Getting ssh key and known hosts ... "
 mkdir ~/.ssh
 cp /opt/atlassian/pipelines/agent/ssh/id_rsa_tmp ~/.ssh/
 cp /opt/atlassian/pipelines/agent/ssh/known_hosts ~/.ssh/
