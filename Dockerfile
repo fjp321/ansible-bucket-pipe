@@ -1,5 +1,5 @@
 FROM alpine
-RUN apk add --update --no-cache bash python3 openssh
+RUN apk add --update --no-cache bash python3 openssh curl
 COPY pipe/pipe.sh /pipe.sh
 COPY pipe.yml /pipe.yml
 RUN python3 -m ensurepip
