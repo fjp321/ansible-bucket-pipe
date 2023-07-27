@@ -13,6 +13,9 @@ VAULT_PASSPHRASE=${VAULT_PASSPHRASE:=""}
 PLAYBOOK_FILE=$(find -P / -name ${PLAYBOOK_NAME} -not -path /usr/lib/* 2> /dev/null)
 PLAYBOOK_LOCATION=$(echo $PLAYBOOOK_FILE | sed 's/playbook.yml//')
 
+info "ssh priv: $SSH_PRIVATE_KEY"
+info "local: $(cat $SSH_PRIVATE_KEY)"
+
 # goto playbook
 cd $PLAYBOOK_LOCATION
 
