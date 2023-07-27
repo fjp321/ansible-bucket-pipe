@@ -7,7 +7,7 @@ info "Getting ssh key and known hosts ... "
 mkdir ~/.ssh
 cp /opt/atlassian/pipelines/agent/ssh/id_rsa_tmp ~/.ssh/
 cp /opt/atlassian/pipelines/agent/ssh/known_hosts ~/.ssh/
-chmod 600 ~/.ssh
+chmod 600 -R ~/.ssh
 
 # non default vars
 info "Getting vars ..."
