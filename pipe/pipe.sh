@@ -55,9 +55,4 @@ info "attempting ansible command ..."
 info "$ANSIBLE_COMMAND"
 
 bash -c "$ANSIBLE_COMMAND"
-
-if [[ "${status}" == "0" ]]; then
-  success "Success!"
-else
-  fail "Error!"
-fi
+success "Success!"
