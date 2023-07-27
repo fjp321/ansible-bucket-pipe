@@ -13,9 +13,6 @@ VAULT_PASSPHRASE=${VAULT_PASSPHRASE:=""}
 PLAYBOOK_FILE=$(find -P / -name ${PLAYBOOK_NAME} -not -path /usr/lib/* 2> /dev/null)
 PLAYBOOK_LOCATION=$(echo $PLAYBOOOK_FILE | sed 's/playbook.yml//')
 
-info "ssh priv: $SSH_PRIVATE_KEY"
-info "local: $(cat $SSH_PRIVATE_KEY)"
-
 # goto playbook
 cd $PLAYBOOK_LOCATION
 
@@ -32,8 +29,7 @@ if [$VAULT_PASSPHRASE != '']; then
 fi
 
 if [$SSH_PRIVATE_KEY != '']; then
-  echo $SSH_PRIVATE_KEY > id_ssh
-  ANSIBLE_COMMAND=$ANSIBLE_COMMAND+" --key-file id_ssh"
+  ANSIBLE_COMMAND=$ANSIBLE_COMMAND+" --key-file $SSH_PRIVATE_KEY"
 fi
 
 bash -c "$ANSIBLE_COMMAND"
