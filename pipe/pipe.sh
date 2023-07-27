@@ -25,8 +25,8 @@ info "done":
 info "Getting playbook ..."
 info "$(find -P . -name ${PLAYBOOK_NAME} 2> /dev/null)"
 PLAYBOOK_FILE=$(find -P . -name ${PLAYBOOK_NAME} 2> /dev/null)
-info "$(echo ${PLAYBOOOK_FILE} | sed "s/${PLAYBOOK_NAME}//")"
-PLAYBOOK_LOCATION=$(echo ${PLAYBOOOK_FILE} | sed "s/${PLAYBOOK_NAME}//")
+info "$(echo ${PLAYBOOK_FILE} | sed "s/${PLAYBOOK_NAME}//")"
+PLAYBOOK_LOCATION=$(echo ${PLAYBOOK_FILE} | sed "s/${PLAYBOOK_NAME}//")
 info "found playbook at $PLAYBOOK_FILE, going to $PLAYBOOK_LOCATION"
 cd $PLAYBOOK_LOCATION
 
