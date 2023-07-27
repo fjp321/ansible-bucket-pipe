@@ -47,12 +47,9 @@ if [ "$VAULT_PASSPHRASE" != "" ]; then
   info "done"
 fi
 
-if [ "$SSH_KEY_LOCATION" != "" ]; then
-  info "Adding private key ..."
-  ANSIBLE_COMMAND="$ANSIBLE_COMMAND --key-file ~/.ssh/id_rsa_tmp"
-  info "done"
-fi
-
+info "Adding private key ..."
+ANSIBLE_COMMAND="$ANSIBLE_COMMAND --key-file ~/.ssh/id_rsa_tmp"
+info "done"
 
 info "attempting ansible command ..."
 info "$ANSIBLE_COMMAND"
