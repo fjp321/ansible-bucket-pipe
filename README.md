@@ -4,4 +4,4 @@
 
 Bitbucket pipe for running ansible playbooks
 
-Can be found at https://hub.docker.com/r/fjp321/pipe-layer
+Can be found at [https://hub.docker.com/r/fjp321/ansible-bitbucket-pipe](https://hub.docker.com/r/fjp321/ansible-bucket-pipe)
